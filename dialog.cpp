@@ -5,8 +5,7 @@
 #include "menus.h"
 #include "bonf.h"
 #include "boni.h"
-#include "qcustomplot.h"
-#include "statistique.h"
+#include "statistique1.h"
 
 #include "fourn.h"
 #include <QMessageBox>
@@ -16,7 +15,6 @@
 #include <QComboBox>
 #include <QPrinter>
 #include <QPrintDialog>
-
 #include <QDate>
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
@@ -73,7 +71,7 @@ void Dialog::on_ajouterproduit_clicked()
                         verifHedhi1 = true;
                     }
                 }
-                if((verifHedhi1 == false )){
+                if(verifHedhi1 == false ){
                     verif_libelle = false;
                     QMessageBox::information(nullptr, QObject::tr("Erreur"),
                                 QObject::tr("Erreur libelle invalide .\n"
@@ -124,7 +122,16 @@ void Dialog::on_ajouterproduit_clicked()
        QString famil= ui->comboBox->currentText();
         if((verif_code == true)&&(verif_qt== true) && (verif_prix==true)&&(verif_libelle)){
             produit  p(code,libelle,dateprod,prix,qt,catg,famil);
+            bool testt=p.verifierId(code);
 
+             if(testt)
+             {
+                 QMessageBox::critical(nullptr, QObject::tr("Ajouter une Annonce"),
+                             QObject::tr("Code produit déjà existant !.\n"
+                                         "Click Ok to exit."), QMessageBox::Ok);
+
+               }
+             else
              {
                 bool test=p.ajouter();
     if(test)
@@ -279,7 +286,7 @@ void Dialog::on_modifprod_clicked()
                       verifHedhi = true;
                   }
               }
-              if((verifHedhi == false )){
+              if(verifHedhi == false ){
                   verif_code = false;
                   QMessageBox::information(nullptr, QObject::tr("Erreur"),
                               QObject::tr("Erreur code invalide .\n"
@@ -297,7 +304,7 @@ void Dialog::on_modifprod_clicked()
                         verifHedhi1 = true;
                     }
                 }
-                if((verifHedhi1 == false )){
+                if(verifHedhi1 == false ){
                     verif_libelle = false;
                     QMessageBox::information(nullptr, QObject::tr("Erreur"),
                                 QObject::tr("Erreur libelle invalide .\n"
@@ -1347,8 +1354,9 @@ void Dialog::on_cherchermenu_clicked()
 void Dialog::on_pushButton_9_clicked()
 {
 
-    statistique S ;
+    statistique1 S ;
             S.exec();
+
 }
 
 void Dialog::on_pushButton_10_clicked()
@@ -3082,8 +3090,7 @@ void Dialog::on_pushButton_225_clicked()
 void Dialog::on_pushButton_3_clicked()
 {
 
-    statistique S ;
-            S.exec();
+
 
 }
 

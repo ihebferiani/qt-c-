@@ -4,6 +4,7 @@
 #include <QDebug>
 
 #include <QString>
+#include <QMessageBox>
 
 
 
@@ -73,8 +74,13 @@ int login::verifierCompte(QString login,QString password)
 
         }
 
-        else return 0;
-
+        else
+        {
+            QMessageBox::information(nullptr, QObject::tr("Erreur"),
+                        QObject::tr("Erreur .\n"
+                                    "Verifier le nom de l'utilisateur ou le mot de passe"), QMessageBox::Cancel);
+            return 0;
+}
 
 
 }

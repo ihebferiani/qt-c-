@@ -1,12 +1,12 @@
-#include "statistique.h"
-#include "ui_statistique.h"
+#include "statistique4.h"
+#include "ui_statistique4.h"
 #include <QSqlQuery>
 #include <QtCharts/QPieSlice>
 #include<QPieSeries>
 
-statistique::statistique(QWidget *parent) :
+statistique4::statistique4(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::statistique)
+    ui(new Ui::statistique4)
 {
     ui->setupUi(this);
     mainLayout=new QVBoxLayout;
@@ -14,7 +14,7 @@ statistique::statistique(QWidget *parent) :
     ui->stat2->setLayout(mainLayout);
 }
 
-statistique::~statistique()
+statistique4::~statistique4()
 {
     delete ui;
 }

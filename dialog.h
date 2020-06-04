@@ -9,7 +9,7 @@
 #include "bonf.h"
 #include "boni.h"
 #include "fourn.h"
-#include "qcustomplot.h"
+//#include "qcustomplot.h"
 namespace Ui {
 class Dialog;
 }

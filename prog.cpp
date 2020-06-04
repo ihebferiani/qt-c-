@@ -3,7 +3,8 @@
 #include "login.h"
 #include "dialog.h"
 #include <QMessageBox>
-
+#include "f.h"
+#include "s.h"
 prog::prog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::prog)
@@ -33,20 +34,46 @@ void prog::on_pushButton_2_clicked()
                        ui->lineEdit->clear();
 
                     if (username=="arwa") {
-                       QMessageBox::information(this, "login","Bienvenue agent de restauration");
+                       QMessageBox::information(this, "login","Bienvenu agent de restauration");
                           class Dialog d;
                        d.setModal(true);
                        d.exec();
-                    }else {
-                                         QMessageBox::warning(this, "login"," Le mot de passe ou le login ne sont pas corréctes,Veuillez saisir une autre fois ");
-                                      }
+
 
 
 
            } else {
-                  QMessageBox::warning(this, "login"," Le mot de passe ou le login ne sont pas corréctes,Veuillez saisir une autre fois ");
+
+              if (username=="farah") {
+
+                  QMessageBox::information(this, "login","Bienvenu agent d'Equipement et maintenance");
+                          class f f;
+                       f.setModal(true);
+                       f.exec();
+
+
+
+
+           }
+
+              else {
+
+                            if (username=="sarra") {
+
+                                QMessageBox::information(this, "login","Bienvenu agent de personnels ");
+                                        class s s;
+                                     s.setModal(true);
+                                     s.exec();
+
+
+
+
+                         }
+
+              else {
+                  QMessageBox::warning(this, "login"," Le mot de passe et le login n'ont pas correctes,Veuillez saisir une autre fois ");
                }
 
 
+}}}
 }
-

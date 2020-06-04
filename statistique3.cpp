@@ -1,26 +1,26 @@
-#include "statistique2.h"
+#include "statistique3.h"
 #include <QSqlQuery>
 #include <QtCharts/QPieSlice>
 #include<QPieSeries>
-#include "vendre.h"
+#include "produit.h"
 
 QT_CHARTS_USE_NAMESPACE
 
-Statistique2::Statistique2(){
+Statistique3::Statistique3(){
 
 }
 
-QChartView *Statistique2::Preparechart(){
-         vendre v;
+QChartView *Statistique3::Preparechart(){
+         produit p;
          QPieSeries *series;
          series = new QPieSeries();
-         int moins = v.stat_moins();
+         int moins = p.stat_moins();
            moins= ((moins * 360) / 100);
-             series->append("prix inferieur à 100 ", (moins*16));
+             series->append("Qt inferieur à 10 ", (moins*16));
 
-             int plus = v.stat_plus();
+             int plus = p.stat_plus();
                plus= ((plus * 360) / 100);
-             series->append("prix superieur à 100",(plus*16));
+             series->append("Qt superieur à 10",(plus*16));
 
     QPieSlice *slice = series->slices().at(1);
 
@@ -32,7 +32,7 @@ QChartView *Statistique2::Preparechart(){
 
        chart = new QChart();
        chart->addSeries(series);
-       chart->setTitle("** Statistique Prix des Equipements à vendre **");
+       chart->setTitle("**    Articles en rupture de stock    **");
        chartView = new QChartView(chart);
        chartView->setRenderHint(QPainter::Antialiasing);
 
