@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/new/prefix1">
+    <qresource prefix="/">
         <file>img/1.png</file>
         <file>img/500_F_232634055_nsd24iXrNY8eRpc9oJJu4YHPFLmDmYWP.jpg</file>
         <file>img/8774 - Copy.png</file>
@@ -25,7 +25,6 @@
         <file>img/icon-supp2 (1).png</file>
         <file>img/images.png</file>
         <file>img/kindpng_5047621.png</file>
-        <file>img/login.jpg</file>
         <file>img/Red.svg.png</file>
         <file>img/refresh.png</file>
         <file>img/refresh_copy.png</file>
